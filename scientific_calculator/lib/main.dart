@@ -12,9 +12,9 @@ class CalculatorApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Scientific Calculator',
-      debugShowCheckedModeBanner: false, // Sağ üstteki "DEBUG" yazısını kaldırır
+      debugShowCheckedModeBanner: false, 
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Colors.black, // Arka planı simsiyah yapıyoruz
+        scaffoldBackgroundColor: Colors.black, 
       ),
       home: const CalculatorView(),
     );

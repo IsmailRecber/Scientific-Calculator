@@ -15,19 +15,15 @@ class _CalculatorViewState extends State<CalculatorView> {
  void buttonPressed(String buttonText) {
     setState(() {
       if (buttonText == '=') {
-        // Eşittir'e basıldıysa hesaplama motoruna gönder
         displayText = CalculatorEngine.evaluate(displayText);
       } else if (buttonText == 'del') {
-        // Silme tuşu: Son karakteri sil, tek karakter kaldıysa 0 yap
         if (displayText.length > 1) {
           displayText = displayText.substring(0, displayText.length - 1);
         } else {
           displayText = "0";
         }
       } else {
-        // Ekran hata veriyorsa veya sadece 0 varsa, yeni girilen rakamla değiştir
         if (displayText == "0" || displayText == "Hata") {
-          // Eğer basılan tuş nokta ise "0." olarak kalsın
           if (buttonText == ".") {
             displayText = "0.";
           } else {
@@ -41,12 +37,11 @@ class _CalculatorViewState extends State<CalculatorView> {
     });
   }
 
-  // Sık kullanılan renkleri tanımlayalım (Orijinal tasarıma uygun)
-  final Color mathColor = const Color(0xFF607D8B); // Mavi-Gri
-  final Color numColor = const Color(0xFF303030);  // Koyu Gri
-  final Color opColor = Colors.orange;             // Turuncu
-  final Color clearColor = const Color(0xFFEF5350); // Kırmızı
-  final Color equalColor = const Color(0xFF66BB6A); // Yeşil
+  final Color mathColor = const Color(0xFF607D8B); 
+  final Color numColor = const Color(0xFF303030);  
+  final Color opColor = Colors.orange;             
+  final Color clearColor = const Color(0xFFEF5350); 
+  final Color equalColor = const Color(0xFF66BB6A); 
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +53,6 @@ class _CalculatorViewState extends State<CalculatorView> {
       ),
       body: Column(
         children: [
-          // Ekran (Display) Kısmı
           Expanded(
             flex: 2,
             child: Container(

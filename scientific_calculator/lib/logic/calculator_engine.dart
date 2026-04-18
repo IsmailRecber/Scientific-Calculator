@@ -5,17 +5,13 @@ class CalculatorEngine {
     try {
       String parsedEquation = equation.replaceAll('log(', 'ln(');
 
-      // --- AKILLI PARANTEZ TAMAMLAMA SİSTEMİ ---
-      // Açılan ve kapanan parantez sayılarını buluyoruz
       int openParenCount = parsedEquation.split('(').length - 1;
       int closeParenCount = parsedEquation.split(')').length - 1;
       
-      // Eğer açılan parantez kapanandan fazlaysa, eksik olanları formülün sonuna ekliyoruz
       if (openParenCount > closeParenCount) {
         int missingCount = openParenCount - closeParenCount;
-        parsedEquation += ')' * missingCount; // Eksik kadar ')' ekle
+        parsedEquation += ')' * missingCount; 
       }
-      // -----------------------------------------
 
       Parser p = Parser();
       Expression exp = p.parse(parsedEquation);
